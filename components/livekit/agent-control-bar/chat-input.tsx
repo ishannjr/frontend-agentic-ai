@@ -16,10 +16,10 @@ const MOTION_PROPS = {
       marginBottom: 12,
     },
   },
-  initial: 'hidden',
+  initial: 'hidden' as const,
   transition: {
     duration: 0.3,
-    ease: 'easeOut',
+    ease: 'easeOut' as const,
   },
 };
 
@@ -65,11 +65,11 @@ export function ChatInput({
       inert={!chatOpen}
       {...MOTION_PROPS}
       animate={chatOpen ? 'visible' : 'hidden'}
-      className="border-input/50 flex w-full items-start overflow-hidden border-b"
+      className="border-border/30 flex w-full items-start overflow-hidden border-b pb-3"
     >
       <form
         onSubmit={handleSubmit}
-        className="mb-3 flex grow items-end gap-2 rounded-md pl-1 text-sm"
+        className="bg-muted/50 flex w-full items-center gap-2 rounded-xl px-4 py-2 shadow-inner backdrop-blur-sm"
       >
         <input
           autoFocus
@@ -77,9 +77,9 @@ export function ChatInput({
           type="text"
           value={message}
           disabled={!chatOpen}
-          placeholder="Type something..."
+          placeholder="Type your message..."
           onChange={(e) => setMessage(e.target.value)}
-          className="h-8 flex-1 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+          className="placeholder:text-muted-foreground h-9 flex-1 bg-transparent text-sm focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
         />
         <Button
           size="icon"
@@ -87,12 +87,16 @@ export function ChatInput({
           disabled={isDisabled}
           variant={isDisabled ? 'secondary' : 'primary'}
           title={isSending ? 'Sending...' : 'Send'}
-          className="self-start"
+          className={
+            isDisabled
+              ? 'h-9 w-9 shrink-0'
+              : 'h-9 w-9 shrink-0 bg-gradient-to-r from-teal-500 to-emerald-500 shadow-lg shadow-teal-500/30 hover:from-teal-600 hover:to-emerald-600'
+          }
         >
           {isSending ? (
-            <SpinnerIcon className="animate-spin" weight="bold" />
+            <SpinnerIcon className="h-4 w-4 animate-spin" weight="bold" />
           ) : (
-            <PaperPlaneRightIcon weight="bold" />
+            <PaperPlaneRightIcon weight="bold" className="h-4 w-4" />
           )}
         </Button>
       </form>
