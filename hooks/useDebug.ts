@@ -2,6 +2,12 @@ import * as React from 'react';
 import { LogLevel, setLogLevel } from 'livekit-client';
 import { useRoomContext } from '@livekit/components-react';
 
+declare global {
+  interface Window {
+    __lk_room?: any;
+  }
+}
+
 export const useDebugMode = (options: { logLevel?: LogLevel; enabled?: boolean } = {}) => {
   const room = useRoomContext();
   const logLevel = options.logLevel ?? 'debug';
