@@ -60,8 +60,8 @@ export const WelcomeView = ({
           className="mb-4 sm:mb-6"
         >
           <div className="relative">
-            <div className="flex h-16 w-16 sm:h-20 sm:w-20 rotate-3 items-center justify-center rounded-2xl bg-white shadow-2xl shadow-black/20">
-              <CarIcon weight="fill" className="h-8 w-8 sm:h-10 sm:w-10 text-teal-600" />
+            <div className="flex h-16 w-16 rotate-3 items-center justify-center rounded-2xl bg-white shadow-2xl shadow-black/20 sm:h-20 sm:w-20">
+              <CarIcon weight="fill" className="h-8 w-8 text-teal-600 sm:h-10 sm:w-10" />
             </div>
             <motion.div
               className="absolute -top-1 -right-1 h-6 w-6 rounded-full border-4 border-white bg-orange-500 shadow-lg"
@@ -77,7 +77,7 @@ export const WelcomeView = ({
           transition={{ delay: 0.1, duration: 0.5 }}
           className="mb-2 sm:mb-3"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-white drop-shadow-lg px-4">
+          <h1 className="px-4 text-4xl font-black tracking-tight text-white drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl">
             Road<span className="text-orange-400">Buddy</span>
           </h1>
         </motion.div>
@@ -86,9 +86,9 @@ export const WelcomeView = ({
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="mb-3 sm:mb-4 px-4"
+          className="mb-3 px-4 sm:mb-4"
         >
-          <p className="text-base sm:text-lg md:text-xl font-semibold text-teal-50">
+          <p className="text-base font-semibold text-teal-50 sm:text-lg md:text-xl">
             Your California DMV Knowledge Test Coach
           </p>
         </motion.div>
@@ -97,28 +97,37 @@ export const WelcomeView = ({
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
-          className="mb-6 sm:mb-8 md:mb-10 max-w-2xl text-base sm:text-lg leading-relaxed font-medium text-white/90 px-4"
+          className="mb-6 max-w-2xl px-4 text-base leading-relaxed font-medium text-white/90 sm:mb-8 sm:text-lg md:mb-10"
         >
-         Built by -Ishaan Mandliya
+          Built by -Ishaan Mandliya
         </motion.p>
 
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.5 }}
-          className="mb-6 sm:mb-8 md:mb-10 grid w-full max-w-3xl grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 px-4"
+          className="mb-6 grid w-full max-w-3xl grid-cols-1 gap-3 px-4 sm:mb-8 sm:grid-cols-3 sm:gap-4 md:mb-10"
         >
-          <div className="rounded-xl border-2 border-white/20 bg-white/95 p-4 sm:p-5 shadow-2xl backdrop-blur-sm transition-transform duration-200 hover:scale-105">
-            <GraduationCapIcon weight="duotone" className="mx-auto mb-2 sm:mb-3 h-8 w-8 sm:h-10 sm:w-10 text-teal-600" />
-            <p className="text-sm sm:text-base font-bold text-slate-800">Practice Quizzes</p>
+          <div className="rounded-xl border-2 border-white/20 bg-white/95 p-4 shadow-2xl backdrop-blur-sm transition-transform duration-200 hover:scale-105 sm:p-5">
+            <GraduationCapIcon
+              weight="duotone"
+              className="mx-auto mb-2 h-8 w-8 text-teal-600 sm:mb-3 sm:h-10 sm:w-10"
+            />
+            <p className="text-sm font-bold text-slate-800 sm:text-base">Practice Quizzes</p>
           </div>
-          <div className="rounded-xl border-2 border-white/20 bg-white/95 p-4 sm:p-5 shadow-2xl backdrop-blur-sm transition-transform duration-200 hover:scale-105">
-            <BookOpenIcon weight="duotone" className="mx-auto mb-2 sm:mb-3 h-8 w-8 sm:h-10 sm:w-10 text-teal-600" />
-            <p className="text-sm sm:text-base font-bold text-slate-800">CA DMV Expert</p>
+          <div className="rounded-xl border-2 border-white/20 bg-white/95 p-4 shadow-2xl backdrop-blur-sm transition-transform duration-200 hover:scale-105 sm:p-5">
+            <BookOpenIcon
+              weight="duotone"
+              className="mx-auto mb-2 h-8 w-8 text-teal-600 sm:mb-3 sm:h-10 sm:w-10"
+            />
+            <p className="text-sm font-bold text-slate-800 sm:text-base">CA DMV Expert</p>
           </div>
-          <div className="rounded-xl border-2 border-white/20 bg-white/95 p-4 sm:p-5 shadow-2xl backdrop-blur-sm transition-transform duration-200 hover:scale-105">
-            <LightningIcon weight="duotone" className="mx-auto mb-2 sm:mb-3 h-8 w-8 sm:h-10 sm:w-10 text-teal-600" />
-            <p className="text-sm sm:text-base font-bold text-slate-800">Instant Answers</p>
+          <div className="rounded-xl border-2 border-white/20 bg-white/95 p-4 shadow-2xl backdrop-blur-sm transition-transform duration-200 hover:scale-105 sm:p-5">
+            <LightningIcon
+              weight="duotone"
+              className="mx-auto mb-2 h-8 w-8 text-teal-600 sm:mb-3 sm:h-10 sm:w-10"
+            />
+            <p className="text-sm font-bold text-slate-800 sm:text-base">Instant Answers</p>
           </div>
         </motion.div>
 
@@ -132,59 +141,87 @@ export const WelcomeView = ({
             variant="primary"
             size="lg"
             onClick={onStartCall}
-            className="group relative overflow-hidden rounded-full bg-gradient-to-r from-orange-500 to-red-500 px-8 sm:px-12 md:px-16 py-4 sm:py-6 md:py-7 text-base sm:text-lg md:text-xl font-black text-white shadow-2xl shadow-orange-900/40 transition-all duration-300 hover:scale-110 hover:from-orange-600 hover:to-red-600"
+            className="group relative overflow-hidden rounded-full bg-gradient-to-r from-orange-500 to-red-500 px-8 py-4 text-base font-black text-white shadow-2xl shadow-orange-900/40 transition-all duration-300 hover:scale-110 hover:from-orange-600 hover:to-red-600 sm:px-12 sm:py-6 sm:text-lg md:px-16 md:py-7 md:text-xl"
           >
-            <PhoneIcon weight="fill" className="mr-2 sm:mr-3 h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7" />
+            <PhoneIcon weight="fill" className="mr-2 h-5 w-5 sm:mr-3 sm:h-6 sm:w-6 md:h-7 md:w-7" />
             <span className="whitespace-nowrap">{startButtonText}</span>
           </Button>
         </motion.div>
-
-
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.5 }}
-          className="mt-6 sm:mt-8 max-w-2xl w-full px-4"
+          className="mt-6 w-full max-w-2xl px-4 sm:mt-8"
         >
-          <div className="rounded-2xl border-2 border-white/30 bg-white/95 p-4 sm:p-5 shadow-2xl backdrop-blur-sm mb-4 sm:mb-6">
-            <p className="text-xs sm:text-sm leading-relaxed text-slate-800">
-              <span className="font-bold text-teal-700">For RAG context use this DMV PDF:  </span>
+          <div className="mb-4 rounded-2xl border-2 border-white/30 bg-white/95 p-4 shadow-2xl backdrop-blur-sm sm:mb-6 sm:p-5">
+            <p className="text-xs leading-relaxed text-slate-800 sm:text-sm">
+              <span className="font-bold text-teal-700">For RAG context use this DMV PDF: </span>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://www.dmv.ca.gov/portal/file/california-quick-reference-drivers-handbook-dl-600-x-pdf/"
-                className="font-semibold text-teal-600 underline underline-offset-2 transition-colors hover:text-teal-800 break-words"
+                className="font-semibold break-words text-teal-600 underline underline-offset-2 transition-colors hover:text-teal-800"
               >
                 California Driver&apos;s Handbook
               </a>
             </p>
           </div>
-            <div className="rounded-2xl border-2 border-orange-200 bg-orange-50 p-4 sm:p-5 shadow-2xl backdrop-blur-sm">
-              <h3 className="font-bold text-orange-700 mb-3 sm:mb-4 text-base sm:text-lg">These are the Tool Calls available for this agent.</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
-                <div className="rounded-xl bg-white/90 border border-orange-100 p-3 sm:p-4 shadow">
-                  <span className="font-bold text-orange-700 text-sm sm:text-base">Practice Quiz Generator</span>
-                  <p className="mt-1.5 sm:mt-2 text-slate-800 text-xs sm:text-sm">Creates interactive quizzes on 5 different topics: Right-of-way rules, Traffic signs, Parking rules, Speed limits, and General DMV knowledge.</p>
-                  <p className="mt-1.5 sm:mt-2 text-slate-600 text-xs italic">Example: "Give me a practice quiz on traffic signs"</p>
-                </div>
-                <div className="rounded-xl bg-white/90 border border-orange-100 p-3 sm:p-4 shadow">
-                  <span className="font-bold text-orange-700 text-sm sm:text-base">Common Mistakes Checker</span>
-                  <p className="mt-1.5 sm:mt-2 text-slate-800 text-xs sm:text-sm">Provides specific mistake lists for: Parallel parking, Lane changes, Intersections, Backing up, and General driving.</p>
-                  <p className="mt-1.5 sm:mt-2 text-slate-600 text-xs italic">Example: "What are common mistakes in parallel parking?"</p>
-                </div>
-                <div className="rounded-xl bg-white/90 border border-orange-100 p-3 sm:p-4 shadow">
-                  <span className="font-bold text-orange-700 text-sm sm:text-base">DMV Office Locator</span>
-                  <p className="mt-1.5 sm:mt-2 text-slate-800 text-xs sm:text-sm">Lists DMV offices with real addresses in major CA cities, wait times, hours, and pro tips for visiting.</p>
-                  <p className="mt-1.5 sm:mt-2 text-slate-600 text-xs italic">Example: "Find DMV offices near Los Angeles"</p>
-                </div>
-                <div className="rounded-xl bg-white/90 border border-orange-100 p-3 sm:p-4 shadow">
-                  <span className="font-bold text-orange-700 text-sm sm:text-base">Road Sign Explainer</span>
-                  <p className="mt-1.5 sm:mt-2 text-slate-800 text-xs sm:text-sm">Explains 9 types of road signs: Stop, Yield, Warning, Construction, Guide, Service, Recreational, Railroad crossing, and School zone.</p>
-                  <p className="mt-1.5 sm:mt-2 text-slate-600 text-xs italic">Example: "What does a yield sign mean?"</p>
-                </div>
+          <div className="rounded-2xl border-2 border-orange-200 bg-orange-50 p-4 shadow-2xl backdrop-blur-sm sm:p-5">
+            <h3 className="mb-3 text-base font-bold text-orange-700 sm:mb-4 sm:text-lg">
+              These are the Tool Calls available for this agent.
+            </h3>
+            <div className="grid grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2">
+              <div className="rounded-xl border border-orange-100 bg-white/90 p-3 shadow sm:p-4">
+                <span className="text-sm font-bold text-orange-700 sm:text-base">
+                  Practice Quiz Generator
+                </span>
+                <p className="mt-1.5 text-xs text-slate-800 sm:mt-2 sm:text-sm">
+                  Creates interactive quizzes on 5 different topics: Right-of-way rules, Traffic
+                  signs, Parking rules, Speed limits, and General DMV knowledge.
+                </p>
+                <p className="mt-1.5 text-xs text-slate-600 italic sm:mt-2">
+                  Example: &quot;Give me a practice quiz on traffic signs&quot;
+                </p>
+              </div>
+              <div className="rounded-xl border border-orange-100 bg-white/90 p-3 shadow sm:p-4">
+                <span className="text-sm font-bold text-orange-700 sm:text-base">
+                  Common Mistakes Checker
+                </span>
+                <p className="mt-1.5 text-xs text-slate-800 sm:mt-2 sm:text-sm">
+                  Provides specific mistake lists for: Parallel parking, Lane changes,
+                  Intersections, Backing up, and General driving.
+                </p>
+                <p className="mt-1.5 text-xs text-slate-600 italic sm:mt-2">
+                  Example: &quot;What are common mistakes in parallel parking?&quot;
+                </p>
+              </div>
+              <div className="rounded-xl border border-orange-100 bg-white/90 p-3 shadow sm:p-4">
+                <span className="text-sm font-bold text-orange-700 sm:text-base">
+                  DMV Office Locator
+                </span>
+                <p className="mt-1.5 text-xs text-slate-800 sm:mt-2 sm:text-sm">
+                  Lists DMV offices with real addresses in major CA cities, wait times, hours, and
+                  pro tips for visiting.
+                </p>
+                <p className="mt-1.5 text-xs text-slate-600 italic sm:mt-2">
+                  Example: &quot;Find DMV offices near Los Angeles&quot;
+                </p>
+              </div>
+              <div className="rounded-xl border border-orange-100 bg-white/90 p-3 shadow sm:p-4">
+                <span className="text-sm font-bold text-orange-700 sm:text-base">
+                  Road Sign Explainer
+                </span>
+                <p className="mt-1.5 text-xs text-slate-800 sm:mt-2 sm:text-sm">
+                  Explains 9 types of road signs: Stop, Yield, Warning, Construction, Guide,
+                  Service, Recreational, Railroad crossing, and School zone.
+                </p>
+                <p className="mt-1.5 text-xs text-slate-600 italic sm:mt-2">
+                  Example: &quot;What does a yield sign mean?&quot;
+                </p>
               </div>
             </div>
+          </div>
         </motion.div>
       </section>
     </div>

@@ -49,6 +49,7 @@ export const getAppConfig = cache(async (headers: Headers): Promise<AppConfig> =
             (typeof config[key as keyof AppConfig] === entry.type &&
               typeof config[key as keyof AppConfig] === typeof entry.value)
           ) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             (config as any)[key as keyof AppConfig] = entry.value as AppConfig[keyof AppConfig];
           }
         }
