@@ -15,7 +15,6 @@ export function ChatTranscript({
 }: ChatTranscriptProps & Omit<HTMLMotionProps<'div'>, 'ref'>) {
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll to bottom when new messages arrive
   useEffect(() => {
     if (messages.length > 0) {
       setTimeout(() => {

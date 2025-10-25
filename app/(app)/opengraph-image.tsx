@@ -18,7 +18,6 @@ type ImageData = {
   dimensions: Dimensions;
 };
 
-// Image metadata
 export const alt = 'About Acme';
 export const size = {
   width: 1200,
@@ -33,7 +32,6 @@ function doesLocalFileExist(uri: string) {
   return existsSync(join(process.cwd(), uri));
 }
 
-// LOCAL FILES MUST BE IN PUBLIC FOLDER
 async function loadFileData(filePath: string): Promise<ArrayBuffer> {
   if (isRemoteFile(filePath)) {
     const response = await fetch(filePath);
@@ -43,7 +41,6 @@ async function loadFileData(filePath: string): Promise<ArrayBuffer> {
     return await response.arrayBuffer();
   }
 
-  // Try file system first (works in local development)
   if (doesLocalFileExist(filePath)) {
     const buffer = await readFile(join(process.cwd(), filePath));
     return buffer.buffer.slice(
@@ -52,7 +49,6 @@ async function loadFileData(filePath: string): Promise<ArrayBuffer> {
     ) as ArrayBuffer;
   }
 
-  // Fallback to fetching from public URL (works in production)
   const publicFilePath = filePath.replace('public/', '');
   const fontUrl = `https://${process.env.VERCEL_URL}/${publicFilePath}`;
 
@@ -100,7 +96,6 @@ function cleanPageTitle(appName: string) {
 
 export const contentType = 'image/png';
 
-// Image generation
 export default async function Image() {
   const hdrs = await headers();
   const appConfig = await getAppConfig(hdrs);
@@ -110,7 +105,6 @@ export default async function Image() {
   const isLogoUriLocal = logoUri.includes('lk-logo');
   const wordmarkUri = logoUri === APP_CONFIG_DEFAULTS.logoDark ? 'public/lk-wordmark.svg' : logoUri;
 
-  // Load fonts - use file system in dev, fetch in production
   let commitMonoData: ArrayBuffer | undefined;
   let everettLightData: ArrayBuffer | undefined;
 
@@ -119,19 +113,15 @@ export default async function Image() {
     everettLightData = await loadFileData('public/everett-light.woff');
   } catch (e) {
     console.error('Failed to load fonts:', e);
-    // Continue without custom fonts - will fall back to system fonts
   }
 
-  // bg
   const { base64: bgSrcBase64 } = await getImageData('public/opengraph-image-bg.png');
 
-  // wordmark
   const { base64: wordmarkSrcBase64, dimensions: wordmarkDimensions } = isLogoUriLocal
     ? await getImageData(wordmarkUri)
     : await getImageData(logoUri);
   const wordmarkSize = scaleImageSize(wordmarkDimensions, isLogoUriLocal ? 32 : 64);
 
-  // logo
   const { base64: logoSrcBase64, dimensions: logoDimensions } = await getImageData(
     logoUri,
     'public/lk-logo-dark.svg'
@@ -140,7 +130,6 @@ export default async function Image() {
 
   return new ImageResponse(
     (
-      // ImageResponse JSX element
       <div
         style={{
           display: 'flex',
@@ -154,7 +143,6 @@ export default async function Image() {
           backgroundRepeat: 'no-repeat',
         }}
       >
-        {/* wordmark */}
         <div
           style={{
             position: 'absolute',
@@ -165,10 +153,8 @@ export default async function Image() {
             gap: 10,
           }}
         >
-          {/* eslint-disable-next-line jsx-a11y/alt-text */}
           <img src={wordmarkSrcBase64} width={wordmarkSize.width} height={wordmarkSize.height} />
         </div>
-        {/* logo */}
         <div
           style={{
             position: 'absolute',
@@ -179,10 +165,8 @@ export default async function Image() {
             gap: 10,
           }}
         >
-          {/* eslint-disable-next-line jsx-a11y/alt-text */}
           <img src={logoSrcBase64} width={logoSize.width} height={logoSize.height} />
         </div>
-        {/* title */}
         <div
           style={{
             position: 'absolute',

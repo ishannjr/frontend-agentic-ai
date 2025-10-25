@@ -63,8 +63,6 @@ export function TrackDeviceSelect({
     onDeviceListChange?.(devices);
   }, [devices, onDeviceListChange]);
 
-  // When the select opens, ensure that media devices are re-requested in case when they were last
-  // requested, permissions were not granted
   useLayoutEffect(() => {
     if (open) {
       setRequestPermissionsState(true);

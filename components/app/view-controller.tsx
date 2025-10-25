@@ -33,10 +33,8 @@ export function ViewController() {
   const isSessionActiveRef = useRef(false);
   const { appConfig, isSessionActive, startSession } = useSession();
 
-  // animation handler holds a reference to stale isSessionActive value
   isSessionActiveRef.current = isSessionActive;
 
-  // disconnect room after animation completes
   const handleAnimationComplete = () => {
     if (!isSessionActiveRef.current && room.state !== 'disconnected') {
       room.disconnect();
@@ -45,7 +43,6 @@ export function ViewController() {
 
   return (
     <AnimatePresence mode="wait">
-      {/* Welcome screen */}
       {!isSessionActive && (
         <MotionWelcomeView
           key="welcome"
@@ -54,7 +51,6 @@ export function ViewController() {
           onStartCall={startSession}
         />
       )}
-      {/* Session view */}
       {isSessionActive && (
         <MotionSessionView
           key="session-view"

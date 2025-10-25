@@ -56,7 +56,6 @@ export function ChatInput({
 
   useEffect(() => {
     if (chatOpen && isAgentAvailable) return;
-    // when not disabled refocus on input
     inputRef.current?.focus();
   }, [chatOpen, isAgentAvailable]);
 

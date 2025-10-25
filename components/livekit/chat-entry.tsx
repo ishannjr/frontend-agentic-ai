@@ -2,17 +2,11 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 
 export interface ChatEntryProps extends React.HTMLAttributes<HTMLLIElement> {
-  /** The locale to use for the timestamp. */
   locale: string;
-  /** The timestamp of the message. */
   timestamp: number;
-  /** The message to display. */
   message: string;
-  /** The origin of the message. */
   messageOrigin: 'local' | 'remote';
-  /** The sender's name. */
   name?: string;
-  /** Whether the message has been edited. */
   hasBeenEdited?: boolean;
 }
 

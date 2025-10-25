@@ -80,7 +80,6 @@ export function useInputControls({
         screenShareToggle.toggle(false);
       }
       await cameraToggle.toggle(enabled);
-      // persist video input enabled preference
       saveVideoInputEnabled(!cameraToggle.enabled);
     },
     [cameraToggle, screenShareToggle, saveVideoInputEnabled]
@@ -89,7 +88,6 @@ export function useInputControls({
   const handleToggleMicrophone = useCallback(
     async (enabled?: boolean) => {
       await microphoneToggle.toggle(enabled);
-      // persist audio input enabled preference
       saveAudioInputEnabled(!microphoneToggle.enabled);
     },
     [microphoneToggle, saveAudioInputEnabled]

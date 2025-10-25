@@ -22,8 +22,6 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-// https://react.dev/reference/react/cache#caveats
-// > React will invalidate the cache for all memoized functions for each server request.
 export const getAppConfig = cache(async (headers: Headers): Promise<AppConfig> => {
   if (CONFIG_ENDPOINT) {
     const sandboxId = SANDBOX_ID ?? headers.get('x-sandbox-id') ?? '';
@@ -45,15 +43,12 @@ export const getAppConfig = cache(async (headers: Headers): Promise<AppConfig> =
 
         for (const [key, entry] of Object.entries(remoteConfig)) {
           if (entry === null) continue;
-          // Only include app config entries that are declared in defaults and, if set,
-          // share the same primitive type as the default value.
           if (
             (key in APP_CONFIG_DEFAULTS &&
               APP_CONFIG_DEFAULTS[key as keyof AppConfig] === undefined) ||
             (typeof config[key as keyof AppConfig] === entry.type &&
               typeof config[key as keyof AppConfig] === typeof entry.value)
           ) {
-            // @ts-expect-error I'm not sure quite how to appease TypeScript, but we've thoroughly checked types above
             config[key as keyof AppConfig] = entry.value as AppConfig[keyof AppConfig];
           }
         }
@@ -72,9 +67,6 @@ export const getAppConfig = cache(async (headers: Headers): Promise<AppConfig> =
   return APP_CONFIG_DEFAULTS;
 });
 
-// check provided accent colors against defaults
-// apply styles if they differ (or in development mode)
-// generate a hover color for the accent color by mixing it with 20% black
 export function getStyles(appConfig: AppConfig) {
   const { accent, accentDark } = appConfig;
 

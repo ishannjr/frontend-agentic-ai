@@ -14,15 +14,14 @@ export interface AppConfig {
   logoDark?: string;
   accentDark?: string;
 
-  // for LiveKit Cloud Sandbox
   sandboxId?: string;
   agentName?: string;
 }
 
 export const APP_CONFIG_DEFAULTS: AppConfig = {
   companyName: 'LiveKit',
-  pageTitle: 'LiveKit Voice Agent',
-  pageDescription: 'A voice agent built with LiveKit',
+  pageTitle: 'RoadBuddy - DMV Test Coach',
+  pageDescription: 'Your California DMV Knowledge Test Coach powered by AI',
 
   supportsChatInput: true,
   supportsVideoInput: true,
@@ -35,7 +34,6 @@ export const APP_CONFIG_DEFAULTS: AppConfig = {
   accentDark: '#1fd5f9',
   startButtonText: 'Start call',
 
-  // for LiveKit Cloud Sandbox
   sandboxId: undefined,
   agentName: undefined,
 };

@@ -29,9 +29,6 @@ export interface AgentControlBarProps extends UseInputControlsProps {
   onDeviceError?: (error: { source: Track.Source; error: Error }) => void;
 }
 
-/**
- * A control bar specifically designed for voice assistant interfaces
- */
 export function AgentControlBar({
   controls,
   saveUserChoices = true,
@@ -94,7 +91,6 @@ export function AgentControlBar({
       )}
       {...props}
     >
-      {/* Chat Input */}
       {visibleControls.chat && (
         <ChatInput
           chatOpen={chatOpen}
@@ -105,7 +101,6 @@ export function AgentControlBar({
 
       <div className="flex gap-2">
         <div className="flex grow gap-2">
-          {/* Toggle Microphone */}
           {visibleControls.microphone && (
             <TrackSelector
               kind="audioinput"
@@ -120,7 +115,6 @@ export function AgentControlBar({
             />
           )}
 
-          {/* Toggle Camera */}
           {visibleControls.camera && (
             <TrackSelector
               kind="videoinput"
@@ -135,7 +129,6 @@ export function AgentControlBar({
             />
           )}
 
-          {/* Toggle Screen Share */}
           {visibleControls.screenShare && (
             <TrackToggle
               size="icon"
@@ -148,7 +141,6 @@ export function AgentControlBar({
             />
           )}
 
-          {/* Toggle Transcript */}
           <Toggle
             size="icon"
             variant="secondary"
@@ -164,7 +156,6 @@ export function AgentControlBar({
           </Toggle>
         </div>
 
-        {/* Disconnect */}
         {visibleControls.leave && (
           <Button
             variant="destructive"

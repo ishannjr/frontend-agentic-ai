@@ -84,11 +84,6 @@ export function useRoom(appConfig: AppConfig) {
           ),
       ]).catch((error) => {
         if (aborted.current) {
-          // Once the effect has cleaned up after itself, drop any errors
-          //
-          // These errors are likely caused by this effect rerunning rapidly,
-          // resulting in a previous run `disconnect` running in parallel with
-          // a current run `connect`
           return;
         }
 

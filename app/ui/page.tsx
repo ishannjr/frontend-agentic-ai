@@ -54,7 +54,6 @@ export default function Base() {
     <>
       <h2 className="mt-40 mb-8 text-4xl font-extralight tracking-tight">Primitives</h2>
 
-      {/* Button */}
       <Container componentName="Button">
         <table className="w-full">
           <thead className="font-mono text-xs font-normal uppercase [&_th]:w-1/5 [&_th]:p-2 [&_th]:text-center [&_th]:font-normal">
@@ -88,7 +87,6 @@ export default function Base() {
         </table>
       </Container>
 
-      {/* Toggle */}
       <Container componentName="Toggle">
         <table className="w-full">
           <thead className="font-mono text-xs font-normal uppercase [&_th]:w-1/5 [&_th]:p-2 [&_th]:text-center [&_th]:font-normal">
@@ -120,7 +118,6 @@ export default function Base() {
         </table>
       </Container>
 
-      {/* Alert */}
       <Container componentName="Alert">
         {['default', 'destructive'].map((variant) => (
           <div key={variant}>
@@ -133,7 +130,6 @@ export default function Base() {
         ))}
       </Container>
 
-      {/* Select */}
       <Container componentName="Select">
         <div className="grid w-full grid-cols-2 gap-2">
           <div>
@@ -167,7 +163,6 @@ export default function Base() {
 
       <h2 className="mt-40 mb-4 text-4xl font-extralight tracking-tight">Components</h2>
 
-      {/* Agent control bar */}
       <Container componentName="AgentControlBar">
         <div className="relative flex items-center justify-center">
           <AgentControlBar
@@ -183,7 +178,6 @@ export default function Base() {
         </div>
       </Container>
 
-      {/* Track device select */}
       <Container componentName="TrackDeviceSelect">
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -197,7 +191,6 @@ export default function Base() {
         </div>
       </Container>
 
-      {/* Track toggle */}
       <Container componentName="TrackToggle">
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -211,7 +204,6 @@ export default function Base() {
         </div>
       </Container>
 
-      {/* Track selector */}
       <Container componentName="TrackSelector">
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -225,7 +217,6 @@ export default function Base() {
         </div>
       </Container>
 
-      {/* Chat entry */}
       <Container componentName="ChatEntry">
         <div className="mx-auto max-w-prose space-y-4">
           <ChatEntry
@@ -245,14 +236,12 @@ export default function Base() {
         </div>
       </Container>
 
-      {/* Shimmer text */}
       <Container componentName="ShimmerText">
         <div className="text-center">
           <ShimmerText>This is shimmer text</ShimmerText>
         </div>
       </Container>
 
-      {/* Alert toast */}
       <Container componentName="AlertToast">
         <StoryTitle>Alert toast</StoryTitle>
         <div className="mx-auto max-w-prose">
